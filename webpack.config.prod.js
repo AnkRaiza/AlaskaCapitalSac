@@ -42,15 +42,7 @@ export default {
       favicon: 'src/favicon.ico',
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true
+        collapseWhitespace: true
       },
       inject: true,
       // Note that you can add custom options here if you need to handle other custom logic in index.html
@@ -119,12 +111,8 @@ export default {
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
+          'url-loader?limit=10000',
+          'img-loader'
         ]
       },
       {

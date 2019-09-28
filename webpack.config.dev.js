@@ -89,12 +89,8 @@ export default {
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
+          'url-loader?limit=10000',
+          'img-loader'
         ]
       },
       {
